@@ -73,7 +73,8 @@
     "passport-firebase-jwt": "^1.2.1",
     "passport-google-oauth2": "^0.2.0",
     "passport-kakao": "^1.0.1",
-    "passport-linkedin-oauth2": "^2.0.0"
+    "passport-linkedin-oauth2": "^2.0.0",
+    "passport-naver": "^1.0.6"
   },
   "jest": {
     "preset": "ts-jest",

@@ -8,6 +8,7 @@ import FireaseStrategy from '../auth-strategies/firebase';
 import Auth0Strategy from '../auth-strategies/auth0';
 import AzureStrategy from '../auth-strategies/azure-oidc';
 import KakaoStrategy from '../auth-strategies/kakao';
+import NaverStrategy from '../auth-strategies/naver';
 
 export default async function authStrategiesLoader(container: MedusaContainer, authOptions: AuthOptions) {
 	const configModule = container.resolve('configModule') as ConfigModule;
@@ -19,4 +20,5 @@ export default async function authStrategiesLoader(container: MedusaContainer, a
 	Auth0Strategy.load(container, configModule, authOptions);
 	AzureStrategy.load(container, configModule, authOptions);
 	KakaoStrategy.load(container, configModule, authOptions);
+	NaverStrategy.load(container, configModule, authOptions);
 }

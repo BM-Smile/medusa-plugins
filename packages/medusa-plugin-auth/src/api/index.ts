@@ -8,6 +8,7 @@ import FirebaseStrategy from '../auth-strategies/firebase';
 import Auth0Strategy from '../auth-strategies/auth0';
 import AzureStrategy from '../auth-strategies/azure-oidc';
 import KakaoStrategy from '../auth-strategies/kakao';
+import NaverStrategy from '../auth-strategies/naver';
 
 import { AuthOptions } from '../types';
 
@@ -26,6 +27,7 @@ function loadRouters(configModule: ConfigModule, options: AuthOptions): Router[]
 	routers.push(...Auth0Strategy.getRouter(configModule, options));
 	routers.push(...AzureStrategy.getRouter(configModule, options));
 	routers.push(...KakaoStrategy.getRouter(configModule, options));
+	routers.push(...NaverStrategy.getRouter(configModule, options));
 
 	return routers;
 }

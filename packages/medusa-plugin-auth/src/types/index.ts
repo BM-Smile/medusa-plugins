@@ -19,6 +19,7 @@ import {
 import { Auth0Options, AUTH0_ADMIN_STRATEGY_NAME, AUTH0_STORE_STRATEGY_NAME } from '../auth-strategies/auth0';
 import { AzureAuthOptions, AZURE_ADMIN_STRATEGY_NAME, AZURE_STORE_STRATEGY_NAME } from '../auth-strategies/azure-oidc';
 import { KakaoAuthOptions, KAKAO_ADMIN_STRATEGY_NAME, KAKAO_STORE_STRATEGY_NAME } from '../auth-strategies/kakao';
+import { NaverAuthOptions, NAVER_ADMIN_STRATEGY_NAME, NAVER_STORE_STRATEGY_NAME } from '../auth-strategies/naver';
 
 export const CUSTOMER_METADATA_KEY = 'useSocialAuth';
 export const AUTH_PROVIDER_KEY = 'authProvider';
@@ -52,6 +53,7 @@ export type ProviderOptions = {
 	auth0?: Auth0Options;
 	azure_oidc?: AzureAuthOptions;
 	kakao?: KakaoAuthOptions;
+	naver?: NaverAuthOptions;
 };
 
 export type StrategyErrorIdentifierType = keyof ProviderOptions;
@@ -90,5 +92,9 @@ export const strategyNames: StrategyNames = {
 	kakao: {
 		admin: KAKAO_ADMIN_STRATEGY_NAME,
 		store: KAKAO_STORE_STRATEGY_NAME,
+	},
+	naver: {
+		admin: NAVER_ADMIN_STRATEGY_NAME,
+		store: NAVER_STORE_STRATEGY_NAME,
 	},
 };
