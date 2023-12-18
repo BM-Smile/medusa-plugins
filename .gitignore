@@ -1,0 +1,16 @@
+.idea
+/lib
+*/**/dist
+node_modules
+.DS_store
+**/.DS_Store
+
+dist
+coverage
+
+/tsconfig.tsbuildinfo
+/packages/tsconfig.tsbuildinfo
+/package-lock.json
+/yarn.json
+
+.env.*
