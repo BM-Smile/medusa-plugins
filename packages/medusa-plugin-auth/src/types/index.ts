@@ -18,6 +18,7 @@ import {
 } from '../auth-strategies/linkedin';
 import { Auth0Options, AUTH0_ADMIN_STRATEGY_NAME, AUTH0_STORE_STRATEGY_NAME } from '../auth-strategies/auth0';
 import { AzureAuthOptions, AZURE_ADMIN_STRATEGY_NAME, AZURE_STORE_STRATEGY_NAME } from '../auth-strategies/azure-oidc';
+import { KakaoAuthOptions, KAKAO_ADMIN_STRATEGY_NAME, KAKAO_STORE_STRATEGY_NAME } from '../auth-strategies/kakao';
 
 export const CUSTOMER_METADATA_KEY = 'useSocialAuth';
 export const AUTH_PROVIDER_KEY = 'authProvider';
@@ -50,6 +51,7 @@ export type ProviderOptions = {
 	firebase?: FirebaseAuthOptions;
 	auth0?: Auth0Options;
 	azure_oidc?: AzureAuthOptions;
+	kakao?: KakaoAuthOptions;
 };
 
 export type StrategyErrorIdentifierType = keyof ProviderOptions;
@@ -84,5 +86,9 @@ export const strategyNames: StrategyNames = {
 	azure_oidc: {
 		admin: AZURE_ADMIN_STRATEGY_NAME,
 		store: AZURE_STORE_STRATEGY_NAME,
+	},
+	kakao: {
+		admin: KAKAO_ADMIN_STRATEGY_NAME,
+		store: KAKAO_STORE_STRATEGY_NAME,
 	},
 };
