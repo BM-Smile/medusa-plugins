@@ -1,6 +1,15 @@
 .idea
-/lib
-*/**/dist
+.vscode
+
+/api
+/core
+/handlers
+/utils
+/types
+/services
+/loaders
+/auth-strategies
+
 node_modules
 .DS_store
 **/.DS_Store
@@ -8,9 +17,8 @@ node_modules
 dist
 coverage
 
-/tsconfig.tsbuildinfo
-/packages/tsconfig.tsbuildinfo
-/package-lock.json
-/yarn.json
+tsconfig.tsbuildinfo
+package-lock.json
+yarn.json
 
 .env.*

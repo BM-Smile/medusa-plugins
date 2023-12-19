@@ -1,50 +1,107 @@
 {
-  "name": "@medusa-plugins/medusa-plugins",
-  "private": true,
-  "version": "0.0.0",
-    "description": "A collection of awesome plugins for medusa and medusa-extender 🚀",
-  "engines": {
-    "node": ">14.17.3"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "scripts": {
-    "build": "./node_modules/.bin/lerna run --parallel build",
-    "bootstrap": "./node_modules/.bin/lerna bootstrap",
-    "clean": "./node_modules/.bin/lerna run --parallel clean",
-    "release": "./node_modules/.bin/lerna publish",
-    "watch": "./node_modules/.bin/lerna run watch",
-    "test": "./node_modules/.bin/lerna run test",
-    "test:local": "./node_modules/.bin/lerna run test:local",
-    "lint": "./node_modules/.bin/eslint 'packages/**' --fix"
-  },
+  "name": "medusa-plugin-auth",
+  "version": "1.8.2",
+  "description": "Social authentication plugin for medusajs",
+  "keywords": [
+    "social",
+    "auth",
+    "auth0",
+    "google",
+    "google+",
+    "facebook",
+    "twitter",
+    "linkedin",
+    "github",
+    "microsoft",
+    "passportjs",
+    "oauth2",
+    "medusa",
+    "medusajs",
+    "e-commerce",
+    "authentication",
+    "medusa-plugins",
+    "medusa-plugin"
+  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adrien2p/medusa-plugins.git"
   },
   "author": "Adrien de Peretti <adrien.deperetti@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/adrien2p/medusa-plugins/issues"
+  "files": [
+    "api",
+    "utils",
+    "core",
+    "types",
+    "loaders",
+    "auth-strategies"
+  ],
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "run-s clean build:tsc",
+    "build:tsc:watch": "tsc --build ./tsconfig.json --watch",
+    "build:tsc": "tsc -b",
+    "clean": "rimraf api services utils types loaders auth-strategies coverage tsconfig.tsbuildinfo",
+    "test": "jest",
+    "test:ci": "yarn add -D @medusajs/medusa@${MEDUSAJS_VERSION} && yarn run test"
   },
-  "homepage": "https://github.com/adrien2p/medusa-plugins#readme",
-  "dependencies": {
-    "rimraf": "^3.0.1"
+  "peerDependencies": {
+    "@medusajs/medusa": ">=1.16.x",
+    "passport": "^0.6.0",
+    "typeorm": "*"
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "eslint": "^8.3.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.0",
-    "tslint": "~6.1.0",
-    "typescript": "^4.5.5"
+    "@medusajs/medusa": ">=1.17.x",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.1.2",
+    "jest": "^29.1.2",
+    "passport": "^0.6.0",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^8.6.2",
+    "typeorm": "^0.3.15"
+  },
+  "dependencies": {
+    "@superfaceai/passport-twitter-oauth2": "^1.1.0",
+    "@types/node": "^18.11.10",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^11.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport-auth0": "^1.4.3",
+    "passport-azure-ad": "^4.3.5",
+    "passport-facebook": "^3.0.0",
+    "passport-firebase-jwt": "^1.2.1",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-kakao": "^1.0.1",
+    "passport-linkedin-oauth2": "^2.0.0",
+    "passport-naver": "^1.0.6"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "testTimeout": 100000,
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.(t|j)s",
+      "!**/__*__/*.(t|j)s"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "coverageDirectory": "<rootDir>/../coverage",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "<rootDir>/../setup-tests.js"
+    ]
   }
 }
