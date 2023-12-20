@@ -60,8 +60,7 @@ export function getKakaoStoreAuthRouter(kakao: KakaoAuthOptions, configModule: C
 		authCallbackPath: kakao.store.authCallbackPath ?? '/store/auth/kakao/cb',
 		successRedirect: kakao.store.successRedirect,
 		strategyName: KAKAO_STORE_STRATEGY_NAME,
-		passportAuthenticateMiddlewareOptions: {
-		},
+		passportAuthenticateMiddlewareOptions: {},
 		passportCallbackAuthenticateMiddlewareOptions: {
 			failureRedirect: kakao.store.failureRedirect,
 		},

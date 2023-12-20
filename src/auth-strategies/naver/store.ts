@@ -60,8 +60,7 @@ export function getNaverStoreAuthRouter(naver: NaverAuthOptions, configModule: C
 		authCallbackPath: naver.store.authCallbackPath ?? '/store/auth/naver/cb',
 		successRedirect: naver.store.successRedirect,
 		strategyName: NAVER_STORE_STRATEGY_NAME,
-		passportAuthenticateMiddlewareOptions: {
-		},
+		passportAuthenticateMiddlewareOptions: {},
 		passportCallbackAuthenticateMiddlewareOptions: {
 			failureRedirect: naver.store.failureRedirect,
 		},

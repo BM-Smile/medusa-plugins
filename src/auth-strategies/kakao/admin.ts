@@ -60,11 +60,7 @@ export function getKakaoAdminAuthRouter(kakao: KakaoAuthOptions, configModule: C
 		authCallbackPath: kakao.admin.authCallbackPath ?? '/admin/auth/kakao/cb',
 		successRedirect: kakao.admin.successRedirect,
 		strategyName: KAKAO_ADMIN_STRATEGY_NAME,
-		passportAuthenticateMiddlewareOptions: {
-			scope: [
-				'email',
-			],
-		},
+		passportAuthenticateMiddlewareOptions: {},
 		passportCallbackAuthenticateMiddlewareOptions: {
 			failureRedirect: kakao.admin.failureRedirect,
 		},

@@ -60,11 +60,7 @@ export function getNaverAdminAuthRouter(naver: NaverAuthOptions, configModule: C
 		authCallbackPath: naver.admin.authCallbackPath ?? '/admin/auth/naver/cb',
 		successRedirect: naver.admin.successRedirect,
 		strategyName: NAVER_ADMIN_STRATEGY_NAME,
-		passportAuthenticateMiddlewareOptions: {
-			scope: [
-				'email',
-			],
-		},
+		passportAuthenticateMiddlewareOptions: {},
 		passportCallbackAuthenticateMiddlewareOptions: {
 			failureRedirect: naver.admin.failureRedirect,
 		},
