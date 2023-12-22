@@ -42,10 +42,13 @@ export declare function validateStoreCallback<T extends {
     emails?: {
         value: string;
     }[];
+    id?: string;
+    username?: string;
 } = {
     emails?: {
         value: string;
     }[];
+    id?: string;
 }>(profile: T, { container, strategyErrorIdentifier, strict, }: {
     container: MedusaContainer;
     strategyErrorIdentifier: StrategyErrorIdentifierType;

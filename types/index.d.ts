@@ -1,11 +1,6 @@
 import { ConfigModule, MedusaContainer } from '@medusajs/medusa/dist/types/global';
 import { Router } from 'express';
-import { FirebaseAuthOptions } from '../auth-strategies/firebase';
 import { GoogleAuthOptions } from '../auth-strategies/google';
-import { FacebookAuthOptions } from '../auth-strategies/facebook';
-import { LinkedinAuthOptions } from '../auth-strategies/linkedin';
-import { Auth0Options } from '../auth-strategies/auth0';
-import { AzureAuthOptions } from '../auth-strategies/azure-oidc';
 import { KakaoAuthOptions } from '../auth-strategies/kakao';
 import { NaverAuthOptions } from '../auth-strategies/naver';
 export declare const CUSTOMER_METADATA_KEY = "useSocialAuth";
@@ -30,11 +25,6 @@ export declare type AuthOptions = ProviderOptions & {
 };
 export declare type ProviderOptions = {
     google?: GoogleAuthOptions;
-    facebook?: FacebookAuthOptions;
-    linkedin?: LinkedinAuthOptions;
-    firebase?: FirebaseAuthOptions;
-    auth0?: Auth0Options;
-    azure_oidc?: AzureAuthOptions;
     kakao?: KakaoAuthOptions;
     naver?: NaverAuthOptions;
 };

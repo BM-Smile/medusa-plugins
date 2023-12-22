@@ -5,11 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = __importDefault(require("@medusajs/medusa/dist/loaders/config"));
 const google_1 = __importDefault(require("../auth-strategies/google"));
-const facebook_1 = __importDefault(require("../auth-strategies/facebook"));
-const linkedin_1 = __importDefault(require("../auth-strategies/linkedin"));
-const firebase_1 = __importDefault(require("../auth-strategies/firebase"));
-const auth0_1 = __importDefault(require("../auth-strategies/auth0"));
-const azure_oidc_1 = __importDefault(require("../auth-strategies/azure-oidc"));
 const kakao_1 = __importDefault(require("../auth-strategies/kakao"));
 const naver_1 = __importDefault(require("../auth-strategies/naver"));
 function default_1(rootDirectory, pluginOptions) {
@@ -20,11 +15,6 @@ exports.default = default_1;
 function loadRouters(configModule, options) {
     const routers = [];
     routers.push(...google_1.default.getRouter(configModule, options));
-    routers.push(...facebook_1.default.getRouter(configModule, options));
-    routers.push(...linkedin_1.default.getRouter(configModule, options));
-    routers.push(...firebase_1.default.getRouter(configModule, options));
-    routers.push(...auth0_1.default.getRouter(configModule, options));
-    routers.push(...azure_oidc_1.default.getRouter(configModule, options));
     routers.push(...kakao_1.default.getRouter(configModule, options));
     routers.push(...naver_1.default.getRouter(configModule, options));
     return routers;
