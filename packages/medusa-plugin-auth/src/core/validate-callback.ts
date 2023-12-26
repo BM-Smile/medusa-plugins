@@ -78,8 +78,11 @@ export async function validateStoreCallback<
 			email_verified?: boolean;
 		};
 		emails?: { value: string }[];
+		id?: string;
+		username?: string;
 	} = {
 		emails?: { value: string }[];
+		id?: string;
 	}
 >(
 	profile: T,
@@ -97,7 +100,7 @@ export async function validateStoreCallback<
 	const customerService: CustomerService = container.resolve('customerService');
 
 	return await manager.transaction(async (transactionManager) => {
-		const email = profile.emails?.[0]?.value;
+		const email = `kko_${profile.id}`;
 		const hasEmailVerifiedField = profile._json?.email_verified !== undefined;
 
 		if (!email) {
@@ -164,8 +167,8 @@ export async function validateStoreCallback<
 				[AUTH_PROVIDER_KEY]: strategyNames[strategyErrorIdentifier].store,
 				[EMAIL_VERIFIED_KEY]: hasEmailVerifiedField ? profile._json.email_verified : false,
 			},
-			first_name: profile.name?.givenName ?? '',
-			last_name: profile.name?.familyName ?? '',
+			first_name: profile.username ?? '',
+			last_name: profile.username ?? '',
 			has_account: true,
 			password: generatePassword(),
 		});
