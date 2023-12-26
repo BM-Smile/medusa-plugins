@@ -100,7 +100,21 @@ export async function validateStoreCallback<
 	const customerService: CustomerService = container.resolve('customerService');
 
 	return await manager.transaction(async (transactionManager) => {
-		const email = `kko_${profile.id}`;
+		let email = profile.id;
+		switch (capitalize(strategyErrorIdentifier)) {
+			case 'Google':
+				email = `ggl_${email}`;
+				break;
+			case 'Kakao':
+				email = `kko_${email}`;
+				break;
+			case 'Naver':
+				email = `nid_${email}`;
+				break;
+			default:
+				email = null;
+				break;
+		}
 		const hasEmailVerifiedField = profile._json?.email_verified !== undefined;
 
 		if (!email) {
