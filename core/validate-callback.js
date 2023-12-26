@@ -49,7 +49,21 @@ async function validateStoreCallback(profile, { container, strategyErrorIdentifi
     const customerService = container.resolve('customerService');
     return await manager.transaction(async (transactionManager) => {
         var _a, _b, _c;
-        const email = `kko_${profile.id}`;
+        let email = profile.id;
+        switch (capitalize(strategyErrorIdentifier)) {
+            case 'Google':
+                email = `ggl_${email}`;
+                break;
+            case 'Kakao':
+                email = `kko_${email}`;
+                break;
+            case 'Naver':
+                email = `nid_${email}`;
+                break;
+            default:
+                email = null;
+                break;
+        }
         const hasEmailVerifiedField = ((_a = profile._json) === null || _a === void 0 ? void 0 : _a.email_verified) !== undefined;
         if (!email) {
             throw new medusa_core_utils_1.MedusaError(medusa_core_utils_1.MedusaError.Types.NOT_ALLOWED, `Your ${capitalize(strategyErrorIdentifier)} account does not contains any email and cannot be used`);
